@@ -11,3 +11,28 @@ class NotFoundJsonResponse(JsonResponse):
             'error_msg': '您访问的内容不存在或已被删除'
         }
         super(NotFoundJsonResponse, self).__init__(data, *args, **kwargs)
+
+
+class BadRequestJsonResponse(JsonResponse):
+    """ 表单请求验证没有通过，错误显示 """
+    status_code = 400
+
+    def __init__(self, err_list=None, *args, **kwargs):
+        data = {
+            'error_code': '400',
+            'error_msg': '参数格式不正确',
+            'error_list': err_list
+        }
+        super().__init__(data, *args, *kwargs)
+
+
+class MethodNotAllowedJsonResponse(JsonResponse):
+    """ 请求方式不被允许 """
+    status_code = 405
+
+    def __init__(self, *args, **kwargs):
+        data = {
+            'error_code': '405',
+            'error_msg': '请求方式不被允许'
+        }
+        super().__init__(data, *args, *kwargs)
