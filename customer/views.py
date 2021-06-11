@@ -16,8 +16,10 @@ class CustomerList(ListView):
 
     def get_queryset(self):
         """ 重写查询方法 """
-        # TODO 完善用户这部分
+        # TODO 联调用户模块
         # user = self.request.user
+        # print(user)
+        # query = Q(is_valid=True, user=user)
         query = Q(is_valid=True)
         # 客户名称查询
         name = self.request.GET.get('name', None)
@@ -67,7 +69,7 @@ class CustomerDetail(BaseDetailView):
     slug_url_kwarg = 'pk'
 
     def get_queryset(self):
-        # TODO 完善用户这部分
+        # TODO 联调用户模块
         # user = self.request.user
         # return Customer.objects.filter(user=user, is_valid=True)
         return Customer.objects.filter(is_valid=True)
