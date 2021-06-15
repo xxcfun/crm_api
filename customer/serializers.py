@@ -2,7 +2,7 @@ from utils.serializers import BaseListPageSerializer, BaseSerializer
 
 
 class CustomerListSerializer(BaseListPageSerializer):
-    """ 景点列表 """
+    """ 客户列表 """
     def get_object(self, obj):
         user = obj.user
         return {

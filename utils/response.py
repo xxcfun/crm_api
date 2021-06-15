@@ -36,3 +36,15 @@ class MethodNotAllowedJsonResponse(JsonResponse):
             'error_msg': '请求方式不被允许'
         }
         super().__init__(data, *args, *kwargs)
+
+
+class UnauthorizedJsonResponse(JsonResponse):
+    """ 用户未登录 """
+    status_code = 401
+
+    def __init__(self, *args, **kwargs):
+        data = {
+            'error_code': '401000',
+            'error_msg': '请登录'
+        }
+        super().__init__(data, *args, **kwargs)
