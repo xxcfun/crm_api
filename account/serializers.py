@@ -1,10 +1,11 @@
-from utils.serializers import BaseSerializer
+from django.contrib.auth import get_user_model
+from rest_framework import serializers
+
+User = get_user_model()
 
 
-class UserSerializers(BaseSerializer):
-    """ 用户信息 """
-    def to_dict(self):
-        obj = self.obj
-        return {
-            'username': obj.username,
-        }
+class UserDetailSerializer(serializers.ModelSerializer):
+    """ 用户详情 """
+    class Meta:
+        model = User
+        fields = '__all__'

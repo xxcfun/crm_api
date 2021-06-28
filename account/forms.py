@@ -14,6 +14,7 @@ class LoginForm(forms.Form):
 
     def clean(self):
         data = super(LoginForm, self).clean()
+        # 判断用户是哪一位
         print(data)
 
         if self.errors:

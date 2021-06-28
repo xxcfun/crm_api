@@ -1,3 +1,8 @@
+"""
+暂时废除
+"""
+
+
 class BaseSerializer(object):
     """ 基类 """
     def __init__(self, obj):

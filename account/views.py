@@ -1,53 +1,20 @@
-import json
+from django.contrib.auth import get_user_model
+from django.contrib.auth.backends import ModelBackend
+from django.db.models import Q
 
-from django import http
-from django.contrib.auth import logout
-from django.shortcuts import render
-from django.views import View
-
-from account import serializers
-from account.forms import LoginForm
-from utils.response import BadRequestJsonResponse, MethodNotAllowedJsonResponse, UnauthorizedJsonResponse
+User = get_user_model()
 
 
-def user_login(request):
-    """ 用户登录接口 """
-    if request.method == 'POST':
-        # 用户表单验证
-        form = LoginForm(request.POST)
-        # 验证通过，执行登录
-        if form.is_valid():
-            user = form.do_login(request)
-            data = {
-                'user': serializers.UserSerializers(user).to_dict()
-            }
-            return http.JsonResponse(data)
-        else:
-            err = json.loads(form.errors.as_json())
-            return BadRequestJsonResponse(err)
-    else:
-        # 请求不被允许
-        return MethodNotAllowedJsonResponse()
-
-
-def user_logout(request):
-    """ 用户推出接口 """
-    logout(request)
-    return http.HttpResponse('退出登录', status=201)
-
-
-class UserDetailView(View):
-    """ 用户详细接口 """
-
-    def get(self, request):
-        # 获取用户信息
-        user = request.user
-        # 如果是游客用户，返回401状态码
-        if not user.is_authenticated:
-            return UnauthorizedJsonResponse()
-        else:
-            # 返回信息
-            data = {
-                'user': serializers.UserSerializers(user).to_dict()
-            }
-            return http.JsonResponse(data)
+class CustomBackend(ModelBackend):
+    """ 自定义用户验证 """
+    def authenticate(self, request, username=None, password=None, **kwargs):
+        try:
+            # 用户名和手机都能登录
+            user = User.objects.get(
+                Q(username=username) | Q(mobile=username) | Q(name=username)
+            )
+            if user.check_password(password):
+                return user
+        except Exception as e:
+            print(e)
+            return None

@@ -1,8 +1,10 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.db import models
 
 from customer.choices import Rank, Scale, Nature, Industry, Deal
 from utils.models import CommonModel
+
+User = get_user_model()
 
 
 class Customer(CommonModel):
@@ -15,7 +17,7 @@ class Customer(CommonModel):
     nature = models.SmallIntegerField('客户性质', choices=Nature.choices, default=Nature.NATURE_YX)
     industry = models.SmallIntegerField('客户行业', choices=Industry.choices, default=Industry.INDUSTRY_JTSB)
     remarks = models.CharField('客户备注', max_length=512, blank=True, null=True)
-    user = models.ForeignKey(User, verbose_name='创建人', related_name='customer', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, verbose_name='创建人', on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'customer'

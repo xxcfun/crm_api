@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.documentation import include_docs_urls
+from rest_framework_jwt.views import obtain_jwt_token
+
+import xadmin
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
+    path('xadmin/', xadmin.site.urls),
+    path('docs', include_docs_urls(title='系统接口文档')),
+    path('api-auth/',include('rest_framework.urls')),
     path('customer/', include('customer.urls')),
     path('account/', include('account.urls'))
 ]

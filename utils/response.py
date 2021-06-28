@@ -1,9 +1,14 @@
+"""
+暂时废除
+"""
+
+
 from django.http import JsonResponse
 
 
 class NotFoundJsonResponse(JsonResponse):
-    """ 400对应JSON响应 """
-    status_code = 400
+    """ 404对应JSON响应 """
+    status_code = 404
     
     def __init__(self, *args, **kwargs):
         data = {
@@ -46,5 +51,17 @@ class UnauthorizedJsonResponse(JsonResponse):
         data = {
             'error_code': '401000',
             'error_msg': '请登录'
+        }
+        super().__init__(data, *args, **kwargs)
+
+
+class ServerErrorJsonResponse(JsonResponse):
+    """ 500相应码，服务器正忙 """
+    status_code = 500
+
+    def __init__(self, *args, **kwargs):
+        data = {
+            'error_code': '500000',
+            'error_msg': '服务器正忙，请稍后重试'
         }
         super().__init__(data, *args, **kwargs)
