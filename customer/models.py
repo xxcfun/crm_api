@@ -16,7 +16,7 @@ class Customer(CommonModel):
     scale = models.SmallIntegerField('客户规模', choices=Scale.choices, default=Scale.SCALE_TEN)
     nature = models.SmallIntegerField('客户性质', choices=Nature.choices, default=Nature.NATURE_YX)
     industry = models.SmallIntegerField('客户行业', choices=Industry.choices, default=Industry.INDUSTRY_JTSB)
-    remarks = models.CharField('客户备注', max_length=512, blank=True, null=True)
+    remarks = models.TextField('客户备注', max_length=1000, blank=True, null=True)
     user = models.ForeignKey(User, verbose_name='创建人', on_delete=models.CASCADE)
 
     class Meta:

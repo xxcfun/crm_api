@@ -52,8 +52,11 @@ INSTALLED_APPS = [
     # 客户模块
     'customer.apps.CustomerConfig',
     # 联系人模块
+    'liaison.apps.LiaisonConfig',
     # 拜访记录模块
+    'record.apps.RecordConfig',
     # 商机模块
+    'business.apps.BusinessConfig'
 ]
 
 MIDDLEWARE = [

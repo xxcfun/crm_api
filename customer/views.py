@@ -1,8 +1,9 @@
 from django.db.models import Q
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from customer.models import Customer
@@ -26,7 +27,7 @@ class CustomerViewset(viewsets.ModelViewSet):
         添加客户
     put update:
         更新客户
-    delete delete:
+    delete destroy:
         删除客户
     """
     # permission是用来做权限判断的
@@ -53,3 +54,15 @@ class CustomerViewset(viewsets.ModelViewSet):
             query = query & Q(rank=industry)
         queryset = Customer.objects.filter(query)
         return queryset
+
+    # 如果要进行逻辑删除，那么重写下面两个方法
+    # def destroy(self, request, *args, **kwargs):
+    #     instance = self.get_object()
+    #     print(instance)
+    #     self.perform_destroy(instance)
+    #     return Response(status=status.HTTP_204_NO_CONTENT)
+    #
+    # def perform_destroy(self, instance):
+    #     print(instance)
+    #     instance.is_valid = False
+    #     instance.save()

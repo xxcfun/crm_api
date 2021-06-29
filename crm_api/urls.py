@@ -26,5 +26,8 @@ urlpatterns = [
     path('docs', include_docs_urls(title='系统接口文档')),
     path('api-auth/',include('rest_framework.urls')),
     path('customer/', include('customer.urls')),
-    path('account/', include('account.urls'))
+    path('account/', include('account.urls')),
+    path('liaison/', include('liaison.urls')),
+    path('record/', include('record.urls')),
+    path('business/', include('business.urls'))
 ]
