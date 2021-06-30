@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from business.models import Business
-from business.serializers import BusinessSerializer
+from business.serializers import BusinessSerializer, BusinessCreateSerializer, BusinessDetailSerializer
 from customer.views import Pagination
 from utils.permissions import IsOwnerOrReadOnly
 
@@ -14,8 +14,15 @@ class BusinessViewset(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     # auth使用来做用户认证的
     authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
-    serializer_class = BusinessSerializer
     pagination_class = Pagination
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return BusinessSerializer
+        elif self.action == 'create':
+            return BusinessCreateSerializer
+        else:
+            return BusinessDetailSerializer
 
     def get_queryset(self):
         query = Q(is_valid=True, user=self.request.user)
@@ -25,5 +32,8 @@ class BusinessViewset(viewsets.ModelViewSet):
         customer = self.request.GET.get('customer', None)
         if customer:
             query = query & Q(customer__name__icontains=customer)
+        winning_rate = self.request.GET.get('winning_rate', None)
+        if winning_rate:
+            query = query & Q(winning_rate=winning_rate)
         queryset = Business.objects.filter(query)
         return queryset

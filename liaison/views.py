@@ -7,7 +7,7 @@ from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from customer.views import Pagination
 from liaison.models import Liaison
-from liaison.serializers import LiaisonSerializer
+from liaison.serializers import LiaisonSerializer, LiaisonDetailSerializer, LiaisonCreateSerializer
 from utils.permissions import IsOwnerOrReadOnly
 
 
@@ -15,8 +15,15 @@ class LiaisonViewset(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     # auth使用来做用户认证的
     authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
-    serializer_class = LiaisonSerializer
     pagination_class = Pagination
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return LiaisonSerializer
+        elif self.action == 'create':
+            return LiaisonCreateSerializer
+        else:
+            return LiaisonDetailSerializer
 
     def get_queryset(self):
         query = Q(is_valid=True, user=self.request.user)

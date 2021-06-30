@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from customer.serializers import CustomerSerializer
+from customer.serializers import LinkCustomerSerializer
 from business.models import Business
 
 
@@ -9,8 +9,31 @@ class BusinessSerializer(serializers.ModelSerializer):
         default=serializers.CurrentUserDefault()
     )
     created_at = serializers.DateTimeField(read_only=True, format='%Y-%m-%d %H:%M')
+    winning_rate = serializers.CharField(source='get_winning_rate_display', required=True)
+    customer = LinkCustomerSerializer(read_only=True)
+
+    class Meta:
+        model = Business
+        fields = ('id', 'name', 'customer', 'winning_rate', 'money', 'created_at', 'user')
+
+
+class BusinessDetailSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
+    created_at = serializers.DateTimeField(read_only=True, format='%Y-%m-%d %H:%M')
     updated_at = serializers.DateTimeField(read_only=True, format='%Y-%m-%d %H:%M')
-    customer = CustomerSerializer(many=False, read_only=False)
+    customer = LinkCustomerSerializer(read_only=True)
+
+    class Meta:
+        model = Business
+        fields = '__all__'
+
+
+class BusinessCreateSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
 
     class Meta:
         model = Business

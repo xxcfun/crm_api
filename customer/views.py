@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from customer.models import Customer
-from customer.serializers import CustomerSerializer
+from customer.serializers import CustomerSerializer, CustomerDetailSerializer, LinkCustomerListSerializer
 from utils.permissions import IsOwnerOrReadOnly
 
 
@@ -35,8 +35,13 @@ class CustomerViewset(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     # auth使用来做用户认证的
     authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
-    serializer_class = CustomerSerializer
     pagination_class = Pagination
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return CustomerSerializer
+        else:
+            return CustomerDetailSerializer
 
     def get_queryset(self):
         query = Q(is_valid=True, user=self.request.user)
@@ -66,3 +71,14 @@ class CustomerViewset(viewsets.ModelViewSet):
     #     print(instance)
     #     instance.is_valid = False
     #     instance.save()
+
+
+class LinkCustomerViewset(viewsets.ModelViewSet):
+    """ 外键关联客户 """
+    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
+    # auth使用来做用户认证的
+    authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+    serializer_class = LinkCustomerListSerializer
+
+    def get_queryset(self):
+        return Customer.objects.filter(is_valid=True, user=self.request.user)
