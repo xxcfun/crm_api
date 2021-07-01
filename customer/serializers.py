@@ -1,6 +1,46 @@
 from rest_framework import serializers
 
+from business.models import Business
 from customer.models import Customer
+from liaison.models import Liaison
+from record.models import Record
+
+
+class LiaisonSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
+    created_at = serializers.DateTimeField(read_only=True, format='%Y-%m-%d %H:%M')
+    job = serializers.CharField(source='get_job_display', required=True)
+    injob = serializers.CharField(source='get_injob_display', required=True)
+
+    class Meta:
+        model = Liaison
+        fields = ('id', 'name', 'phone', 'job', 'injob', 'created_at', 'user')
+
+
+class RecordSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
+    created_at = serializers.DateTimeField(read_only=True, format='%Y-%m-%d %H:%M')
+    status = serializers.CharField(source='get_status_display', required=True)
+
+    class Meta:
+        model = Record
+        fields = ('id', 'theme', 'status', 'main', 'next', 'created_at', 'user')
+
+
+class BusinessSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
+    created_at = serializers.DateTimeField(read_only=True, format='%Y-%m-%d %H:%M')
+    winning_rate = serializers.CharField(source='get_winning_rate_display', required=True)
+
+    class Meta:
+        model = Business
+        fields = ('id', 'name', 'winning_rate', 'money', 'created_at', 'user')
 
 
 class CustomerSerializer(serializers.ModelSerializer):
@@ -24,6 +64,9 @@ class CustomerDetailSerializer(serializers.ModelSerializer):
     )
     created_at = serializers.DateTimeField(read_only=True, format='%Y-%m-%d %H:%M')
     updated_at = serializers.DateTimeField(read_only=True, format='%Y-%m-%d %H:%M')
+    liaison = LiaisonSerializer(many=True, read_only=True)
+    record = RecordSerializer(many=True, read_only=True)
+    business = BusinessSerializer(many=True, read_only=True)
 
     class Meta:
         model = Customer
