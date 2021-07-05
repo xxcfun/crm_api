@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+from account.serializers import UserDetailSerializer
 from customer.serializers import LinkCustomerSerializer
 from record.models import Record
 
@@ -38,3 +39,14 @@ class RecordCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Record
         fields = '__all__'
+
+
+class AllRecordSerializer(serializers.ModelSerializer):
+    created_at = serializers.DateTimeField(read_only=True, format='%Y-%m-%d %H:%M')
+    status = serializers.CharField(source='get_status_display', required=True)
+    customer = LinkCustomerSerializer(read_only=True)
+    user = UserDetailSerializer()
+
+    class Meta:
+        model = Record
+        fields = ('id', 'theme', 'customer', 'status', 'main', 'next', 'created_at', 'user')

@@ -28,6 +28,7 @@ class CustomBackend(ModelBackend):
 
 
 class UserViewset(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     serializer_class = UserDetailSerializer
     queryset = User.objects.all()
     authentication_classes = (JSONWebTokenAuthentication, authentication.SessionAuthentication)

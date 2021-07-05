@@ -7,7 +7,8 @@ from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from customer.views import Pagination
 from liaison.models import Liaison
-from liaison.serializers import LiaisonSerializer, LiaisonDetailSerializer, LiaisonCreateSerializer
+from liaison.serializers import LiaisonSerializer, LiaisonDetailSerializer, LiaisonCreateSerializer, \
+    AllLiaisonSerializer
 from utils.permissions import IsOwnerOrReadOnly
 
 
@@ -27,6 +28,28 @@ class LiaisonViewset(viewsets.ModelViewSet):
 
     def get_queryset(self):
         query = Q(is_valid=True, user=self.request.user)
+        name = self.request.GET.get('name', None)
+        if name:
+            query = query & Q(name__icontains=name)
+        customer = self.request.GET.get('customer', None)
+        if customer:
+            query = query & Q(customer__name__icontains=customer)
+        queryset = Liaison.objects.filter(query)
+        return queryset
+
+
+class AllLiaisonViewset(viewsets.ModelViewSet):
+    """ 所有联系人信息 """
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+    serializer_class = AllLiaisonSerializer
+    pagination_class = Pagination
+
+    def get_queryset(self):
+        query = Q(is_valid=True)
+        username = self.request.GET.get('username', None)
+        if username:
+            query = query & Q(user__username=username)
         name = self.request.GET.get('name', None)
         if name:
             query = query & Q(name__icontains=name)

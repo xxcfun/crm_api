@@ -7,6 +7,7 @@ router = DefaultRouter()
 
 router.register(r'customer', views.CustomerViewset, basename='customer')
 router.register(r'linkcustomer', views.LinkCustomerViewset, basename='linkcustomer')
+router.register(r'all/customer', views.AllCustomerViewset, basename='all_customer')
 
 urlpatterns = [
     re_path('^', include(router.urls))

@@ -7,7 +7,8 @@ from rest_framework.response import Response
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from customer.models import Customer
-from customer.serializers import CustomerSerializer, CustomerDetailSerializer, LinkCustomerListSerializer
+from customer.serializers import CustomerSerializer, CustomerDetailSerializer, LinkCustomerListSerializer, \
+    AllCustomerSerializer
 from utils.permissions import IsOwnerOrReadOnly
 
 
@@ -82,3 +83,31 @@ class LinkCustomerViewset(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return Customer.objects.filter(is_valid=True, user=self.request.user)
+
+
+class AllCustomerViewset(viewsets.ModelViewSet):
+    """ 所有客户信息 """
+    permission_classes = (IsAuthenticated, )
+    authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+    serializer_class = AllCustomerSerializer
+    pagination_class = Pagination
+
+    def get_queryset(self):
+        query = Q(is_valid=True)
+        username = self.request.GET.get('username', None)
+        if username:
+            query = query & Q(user__username=username)
+        name = self.request.GET.get('name', None)
+        if name:
+            query = query & Q(name__icontains=name)
+        rank = self.request.GET.get('rank', None)
+        if rank:
+            query = query & Q(rank=rank)
+        is_deal = self.request.GET.get('is_deal', None)
+        if is_deal:
+            query = query & Q(is_deal=is_deal)
+        industry = self.request.GET.get('industry', None)
+        if industry:
+            query = query & Q(rank=industry)
+        queryset = Customer.objects.filter(query)
+        return queryset

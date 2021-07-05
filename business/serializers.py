@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+from account.serializers import UserDetailSerializer
 from customer.serializers import LinkCustomerSerializer
 from business.models import Business
 
@@ -38,3 +39,14 @@ class BusinessCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Business
         fields = '__all__'
+
+
+class AllBusinessSerializer(serializers.ModelSerializer):
+    created_at = serializers.DateTimeField(read_only=True, format='%Y-%m-%d %H:%M')
+    winning_rate = serializers.CharField(source='get_winning_rate_display', required=True)
+    customer = LinkCustomerSerializer(read_only=True)
+    user = UserDetailSerializer()
+
+    class Meta:
+        model = Business
+        fields = ('id', 'name', 'customer', 'winning_rate', 'money', 'created_at', 'user')
