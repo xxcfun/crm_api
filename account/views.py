@@ -6,6 +6,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
+from account import choices
 from account.serializers import UserDetailSerializer
 from utils.permissions import IsOwnerOrReadOnly
 
@@ -30,5 +31,9 @@ class CustomBackend(ModelBackend):
 class UserViewset(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
     serializer_class = UserDetailSerializer
-    queryset = User.objects.all()
     authentication_classes = (JSONWebTokenAuthentication, authentication.SessionAuthentication)
+
+    def get_queryset(self):
+        query = Q(role=choices.Role.ROLE_JL) | Q(role=choices.Role.ROLE_ZG) | Q(role=choices.Role.ROLE_YW)
+        queryset = User.objects.filter(query)
+        return queryset

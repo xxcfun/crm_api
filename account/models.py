@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from account.choices import Role
+
 
 class UserProfile(AbstractUser):
     """ 用户信息 """
@@ -12,6 +14,8 @@ class UserProfile(AbstractUser):
     mobile = models.CharField('电话', max_length=11)
     gender = models.CharField('性别', max_length=6, choices=GENDER_CHOICES, default='male')
     email = models.EmailField('邮箱', max_length=100, null=True, blank=True)
+    role = models.SmallIntegerField('角色', choices=Role.choices, default=None, null=True, blank=True)
+    sub_user = models.ForeignKey('self', verbose_name='上级领导', null=True, blank=True, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = '用户信息'
