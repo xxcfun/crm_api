@@ -29,6 +29,7 @@ class CustomBackend(ModelBackend):
 
 
 class UserViewset(viewsets.ModelViewSet):
+    """ 用户详情 list 列表 TODO 修改密码"""
     permission_classes = (IsAuthenticated,)
     serializer_class = UserDetailSerializer
     authentication_classes = (JSONWebTokenAuthentication, authentication.SessionAuthentication)

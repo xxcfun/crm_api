@@ -29,5 +29,6 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('liaison/', include('liaison.urls')),
     path('record/', include('record.urls')),
-    path('business/', include('business.urls'))
+    path('business/', include('business.urls')),
+    path('data/', include('data.urls'))
 ]

@@ -56,7 +56,9 @@ INSTALLED_APPS = [
     # 拜访记录模块
     'record.apps.RecordConfig',
     # 商机模块
-    'business.apps.BusinessConfig'
+    'business.apps.BusinessConfig',
+    # 数据汇总
+    'data.apps.DataConfig'
 ]
 
 MIDDLEWARE = [
