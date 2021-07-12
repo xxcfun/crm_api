@@ -3,6 +3,7 @@ from django.db import models
 
 class Role(models.IntegerChoices):
     """ 用户角色 """
+    ROLE_AD = 0, '系统管理员'
     ROLE_JL = 1, '经理'
     ROLE_YW = 2, '业务'
     ROLE_ZG = 3, '主管'

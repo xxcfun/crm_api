@@ -11,7 +11,7 @@ class Customer(CommonModel):
     """ 客户信息 """
     name = models.CharField('客户名称', max_length=64, unique=True)
     rank = models.SmallIntegerField('客户级别', choices=Rank.choices, default=Rank.RANK_POTENTIAL)
-    is_deal = models.SmallIntegerField('是否成交', choices=Deal.choices, default=Deal.DEAL_NO)
+    is_deal = models.SmallIntegerField('是否成交', choices=Deal.choices, default=Deal.DEAL_NO, blank=True, null=True)
     website = models.CharField('客户网址', max_length=255, blank=True, null=True)
     scale = models.SmallIntegerField('客户规模', choices=Scale.choices, default=Scale.SCALE_TEN)
     nature = models.SmallIntegerField('客户性质', choices=Nature.choices, default=Nature.NATURE_YX)
