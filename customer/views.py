@@ -57,7 +57,7 @@ class CustomerViewset(viewsets.ModelViewSet):
             query = query & Q(is_deal=is_deal)
         industry = self.request.GET.get('industry', None)
         if industry:
-            query = query & Q(rank=industry)
+            query = query & Q(industry=industry)
         queryset = Customer.objects.filter(query)
         return queryset
 
@@ -108,6 +108,6 @@ class AllCustomerViewset(viewsets.ModelViewSet):
             query = query & Q(is_deal=is_deal)
         industry = self.request.GET.get('industry', None)
         if industry:
-            query = query & Q(rank=industry)
+            query = query & Q(industry=industry)
         queryset = Customer.objects.filter(query)
         return queryset
