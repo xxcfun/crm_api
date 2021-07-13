@@ -38,3 +38,6 @@ class UserViewset(viewsets.ModelViewSet):
         query = Q(role=choices.Role.ROLE_JL) | Q(role=choices.Role.ROLE_ZG) | Q(role=choices.Role.ROLE_YW)
         queryset = User.objects.filter(query)
         return queryset
+
+    def get_object(self):
+        return self.request.user
