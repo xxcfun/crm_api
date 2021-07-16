@@ -97,6 +97,7 @@ WSGI_APPLICATION = 'crm_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# 本地
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -107,6 +108,18 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+
+# 线上
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'crm_api',
+#         'USER': 'root',
+#         'PASSWORD': 'kcroot',
+#         'HOST': '47.104.3.183',
+#         'PORT': '3306',
+#     }
+# }
 
 
 # Password validation

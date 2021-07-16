@@ -17,10 +17,6 @@ from record.choices import STATUS
 from record.models import Record
 from utils.permissions import IsOwnerOrReadOnly
 
-now = datetime.datetime.now()
-day_num = now.isoweekday()
-week_day = now - datetime.timedelta(days=day_num)
-
 
 class DataViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
     """ 数据汇总 """
@@ -30,6 +26,9 @@ class DataViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
 
     def get_queryset(self):
         # 定义一些日期
+        now = datetime.datetime.now()
+        day_num = now.isoweekday()
+        week_day = now - datetime.timedelta(days=day_num)
         year = datetime.datetime.now().year
         month = datetime.datetime.now().month
         day = datetime.datetime.now().day
@@ -89,6 +88,9 @@ class DataCustomerViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
     serializer_class = DataCustomerSerializer
 
     def get_queryset(self):
+        now = datetime.datetime.now()
+        day_num = now.isoweekday()
+        week_day = now - datetime.timedelta(days=day_num)
         query = Q(is_valid=True, created_at__range=(week_day, now))
         username = self.request.GET.get('username', None)
         if username:
@@ -106,6 +108,9 @@ class DataLiaisonViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
     serializer_class = DataLiaisonSerializer
 
     def get_queryset(self):
+        now = datetime.datetime.now()
+        day_num = now.isoweekday()
+        week_day = now - datetime.timedelta(days=day_num)
         query = Q(is_valid=True, created_at__range=(week_day, now))
         username = self.request.GET.get('username', None)
         if username:
@@ -123,6 +128,9 @@ class DataRecordViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
     serializer_class = DataRecordSerializer
 
     def get_queryset(self):
+        now = datetime.datetime.now()
+        day_num = now.isoweekday()
+        week_day = now - datetime.timedelta(days=day_num)
         query = Q(is_valid=True, created_at__range=(week_day, now))
         username = self.request.GET.get('username', None)
         if username:
@@ -140,6 +148,9 @@ class DataBusinessViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
     serializer_class = DataBusinessSerializer
 
     def get_queryset(self):
+        now = datetime.datetime.now()
+        day_num = now.isoweekday()
+        week_day = now - datetime.timedelta(days=day_num)
         query = Q(is_valid=True, created_at__range=(week_day, now))
         username = self.request.GET.get('username', None)
         if username:
