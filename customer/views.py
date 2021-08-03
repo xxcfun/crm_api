@@ -8,7 +8,7 @@ from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from customer.models import Customer
 from customer.serializers import CustomerSerializer, CustomerDetailSerializer, LinkCustomerListSerializer, \
-    AllCustomerSerializer
+    AllCustomerSerializer, LinkAllCustomerListSerializer
 from utils.permissions import IsOwnerOrReadOnly
 
 
@@ -75,7 +75,7 @@ class CustomerViewset(viewsets.ModelViewSet):
 
 
 class LinkCustomerViewset(viewsets.ModelViewSet):
-    """ 外键关联客户 """
+    """ 外键关联客户 业务使用 """
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     # auth使用来做用户认证的
     authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
@@ -83,6 +83,17 @@ class LinkCustomerViewset(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return Customer.objects.filter(is_valid=True, user=self.request.user)
+
+
+class LinkAllCustomerViewset(viewsets.ModelViewSet):
+    """ 外键关联客户 售前售后使用 """
+    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
+    # auth使用来做用户认证的
+    authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+    serializer_class = LinkAllCustomerListSerializer
+
+    def get_queryset(self):
+        return Customer.objects.filter(is_valid=True)
 
 
 class AllCustomerViewset(viewsets.ModelViewSet):

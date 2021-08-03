@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from account.serializers import UserDetailSerializer
 from customer.serializers import LinkCustomerSerializer
-from business.models import Business
+from business.models import Business, BusinessProduct
 
 
 class BusinessSerializer(serializers.ModelSerializer):
@@ -50,3 +50,10 @@ class AllBusinessSerializer(serializers.ModelSerializer):
     class Meta:
         model = Business
         fields = ('id', 'name', 'customer', 'winning_rate', 'money', 'created_at', 'user')
+
+
+class BusinessProductSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = BusinessProduct
+        fields = '__all__'

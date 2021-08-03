@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from account import choices
-from account.serializers import UserDetailSerializer
+from account.serializers import UserDetailSerializer, JSUserSerializer
 from utils.permissions import IsOwnerOrReadOnly
 
 User = get_user_model()
@@ -41,3 +41,14 @@ class UserViewset(viewsets.ModelViewSet):
 
     def get_object(self):
         return self.request.user
+
+
+class JSUserViewset(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = JSUserSerializer
+    authentication_classes = (JSONWebTokenAuthentication, authentication.SessionAuthentication)
+
+    def get_queryset(self):
+        query = Q(role=choices.Role.ROLE_JS)
+        queryset = User.objects.filter(query)
+        return queryset

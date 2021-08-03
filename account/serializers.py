@@ -14,3 +14,11 @@ class UserDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('username', 'name', 'role')
+
+
+class JSUserSerializer(serializers.ModelSerializer):
+    """ 技术角色用户列表 """
+
+    class Meta:
+        model = User
+        fields = ('username', 'name', 'role')

@@ -30,5 +30,6 @@ urlpatterns = [
     path('liaison/', include('liaison.urls')),
     path('record/', include('record.urls')),
     path('business/', include('business.urls')),
-    path('data/', include('data.urls'))
+    path('data/', include('data.urls')),
+    path('backend/', include('backend.urls'))
 ]

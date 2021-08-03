@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from account.serializers import UserDetailSerializer
+from backend.models import PreSupport, Service, AfterSupport, Implement
 from business.models import Business
 from customer.models import Customer
 from liaison.models import Liaison
@@ -38,6 +39,40 @@ class BusinessSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'winning_rate', 'money', 'created_at', 'user')
 
 
+class PreSupportSerializer(serializers.ModelSerializer):
+    user = UserDetailSerializer()
+
+    class Meta:
+        model = PreSupport
+        fields = ('id', 'preplan', 'product', 'cycle', 'des', 'date', 'user')
+
+
+class ImplementSerializer(serializers.ModelSerializer):
+    user = UserDetailSerializer()
+
+    class Meta:
+        model = Implement
+        fields = ('id', 'testplan', 'report', 'date', 'user')
+
+
+class AfterSupportSerializer(serializers.ModelSerializer):
+    user = UserDetailSerializer()
+    status = serializers.CharField(source='get_status_display', required=True)
+
+    class Meta:
+        model = AfterSupport
+        fields = ('id', 'aftersupport', 'status', 'des', 'date', 'user')
+
+
+class ServiceSerializer(serializers.ModelSerializer):
+    user = UserDetailSerializer()
+    created_at = serializers.DateTimeField(read_only=True, format='%Y-%m-%d')
+
+    class Meta:
+        model = Service
+        fields = ('id', 'problem', 'other', 'result', 'user', 'created_at')
+
+
 class CustomerSerializer(serializers.ModelSerializer):
     """ 客户列表信息 """
     user = serializers.HiddenField(
@@ -64,6 +99,10 @@ class CustomerDetailSerializer(serializers.ModelSerializer):
     liaison = LiaisonSerializer(many=True, read_only=True)
     record = RecordSerializer(many=True, read_only=True)
     business = BusinessSerializer(many=True, read_only=True)
+    presupport = PreSupportSerializer(many=True, read_only=True)
+    implement = ImplementSerializer(many=True, read_only=True)
+    aftersupport = AfterSupportSerializer(many=True, read_only=True)
+    service = ServiceSerializer(many=True, read_only=True)
 
     class Meta:
         model = Customer
@@ -71,7 +110,7 @@ class CustomerDetailSerializer(serializers.ModelSerializer):
 
 
 class LinkCustomerSerializer(serializers.ModelSerializer):
-    """ 联系人 拜访记录 商机 外键依赖 """
+    """后端使用 联系人 拜访记录 商机 外键依赖 """
     user = serializers.HiddenField(
         default=serializers.CurrentUserDefault()
     )
@@ -81,8 +120,16 @@ class LinkCustomerSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'user')
 
 
+class LinkAllCustomerSerializer(serializers.ModelSerializer):
+    """ 后端使用 售前 实施 售后 维修 外键依赖 """
+
+    class Meta:
+        model = Customer
+        fields = ('id', 'name')
+
+
 class LinkCustomerListSerializer(serializers.ModelSerializer):
-    """ 关联客户，前端使用 """
+    """ 前端使用，个人添加，返回个人的所有客户 """
     user = serializers.HiddenField(
         default=serializers.CurrentUserDefault()
     )
@@ -91,6 +138,15 @@ class LinkCustomerListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
         fields = ('id', 'value', 'user')
+
+
+class LinkAllCustomerListSerializer(serializers.ModelSerializer):
+    """ 前端使用，售后售前模块 返回所有的客户 """
+    value = serializers.CharField(source='name')
+
+    class Meta:
+        model = Customer
+        fields = ('id', 'value')
 
 
 class AllCustomerSerializer(serializers.ModelSerializer):
@@ -103,7 +159,12 @@ class AllCustomerSerializer(serializers.ModelSerializer):
     liaison = LiaisonSerializer(many=True, read_only=True)
     record = RecordSerializer(many=True, read_only=True)
     business = BusinessSerializer(many=True, read_only=True)
+    presupport = PreSupportSerializer(many=True, read_only=True)
+    implement = ImplementSerializer(many=True, read_only=True)
+    aftersupport = AfterSupportSerializer(many=True, read_only=True)
+    service = ServiceSerializer(many=True, read_only=True)
 
     class Meta:
         model = Customer
-        fields = ('id', 'name', 'rank', 'is_deal', 'scale', 'industry', 'created_at', 'user', 'liaison', 'record', 'business')
+        fields = ('id', 'name', 'rank', 'is_deal', 'scale', 'industry', 'created_at', 'user',
+                  'liaison', 'record', 'business', 'presupport', 'implement', 'aftersupport', 'service')

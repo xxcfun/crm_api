@@ -1,12 +1,13 @@
 from django.db.models import Q
+from django.http import HttpResponse
 from rest_framework import viewsets
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
-from business.models import Business
+from business.models import Business, BusinessProduct
 from business.serializers import BusinessSerializer, BusinessCreateSerializer, BusinessDetailSerializer, \
-    AllBusinessSerializer
+    AllBusinessSerializer, BusinessProductSerializer
 from customer.views import Pagination
 from utils.permissions import IsOwnerOrReadOnly
 
@@ -63,3 +64,15 @@ class AllBusinessViewset(viewsets.ModelViewSet):
             query = query & Q(winning_rate=winning_rate)
         queryset = Business.objects.filter(query)
         return queryset
+
+
+class BusinessProductViewset(viewsets.ModelViewSet):
+    """ 商机产品 """
+    # permission_classes = (IsAuthenticated)
+    authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+    serializer_class = BusinessProductSerializer
+
+    def get_queryset(self):
+        business = self.request.GET.get('business', None)
+        if business:
+            return BusinessProduct.objects.filter(business_id=business)

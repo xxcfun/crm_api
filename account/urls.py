@@ -6,6 +6,7 @@ from account import views
 
 router = DefaultRouter()
 router.register(r'users', views.UserViewset, basename='users')
+router.register(r'jsusers', views.JSUserViewset, basename='jsusers')
 
 urlpatterns = [
     # JWT的认证接口

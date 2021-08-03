@@ -24,3 +24,18 @@ class Business(CommonModel):
 
     def __str__(self):
         return self.name
+
+
+class BusinessProduct(CommonModel):
+    """ 商机产品 """
+    name = models.CharField('产品名称', max_length=128)
+    business = models.ForeignKey(Business, verbose_name='商机', related_name='businessproduct', on_delete=models.CASCADE)
+    number = models.IntegerField('数量')
+    price = models.CharField('金额', max_length=16, blank=True, null=True)
+
+    class Meta:
+        db_table = 'business_product'
+        verbose_name = verbose_name_plural = '商机产品'
+
+    def __str__(self):
+        return self.business.name

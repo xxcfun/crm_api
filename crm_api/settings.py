@@ -58,7 +58,9 @@ INSTALLED_APPS = [
     # 商机模块
     'business.apps.BusinessConfig',
     # 数据汇总
-    'data.apps.DataConfig'
+    'data.apps.DataConfig',
+    # 售前售后模块（售前、实施、售后、维修）
+    'backend.apps.BackendConfig'
 ]
 
 MIDDLEWARE = [
