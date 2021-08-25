@@ -7,7 +7,7 @@ class PreSupportAdmin(object):
 
 
 class ImplementAdmin(object):
-    list_display = ['id', 'testplan', 'customer', 'report', 'user', 'date']
+    list_display = ['id', 'impplan', 'customer', 'product', 'report', 'user', 'date']
 
 
 class AfterSupportAdmin(object):

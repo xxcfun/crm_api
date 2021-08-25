@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from account.serializers import UserDetailSerializer
-from backend.models import PreSupport, Implement, AfterSupport, Service, ServiceProcess
+from backend.models import PreSupport, Implement, AfterSupport, Service, ServiceProcess, FilesModel
 from customer.serializers import LinkAllCustomerSerializer
 
 
@@ -12,7 +12,7 @@ class PreSupportSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PreSupport
-        fields = ('id', 'preplan', 'customer', 'product', 'cycle', 'date', 'des', 'user', 'created_at')
+        fields = ('id', 'preplan', 'customer', 'product', 'cycle', 'date', 'des', 'file', 'user', 'created_at')
 
 
 class PreSupportDetailSerializer(serializers.ModelSerializer):
@@ -45,7 +45,7 @@ class ImplementSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Implement
-        fields = ('id', 'testplan', 'customer', 'report', 'date', 'user', 'created_at')
+        fields = ('id', 'impplan', 'customer', 'product', 'report', 'date', 'file', 'user', 'created_at')
 
 
 class ImplementDetailSerializer(serializers.ModelSerializer):
@@ -79,7 +79,7 @@ class AfterSupportSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AfterSupport
-        fields = ('id', 'aftersupport', 'customer', 'status', 'des', 'date', 'user', 'created_at')
+        fields = ('id', 'aftersupport', 'customer', 'status', 'des', 'date', 'file', 'user', 'created_at')
 
 
 class AfterSupportDetailSerializer(serializers.ModelSerializer):
@@ -142,4 +142,11 @@ class ServiceProcessSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ServiceProcess
+        fields = '__all__'
+
+
+class FilesSerializer(serializers.ModelSerializer):
+    """ 文件上传专用 """
+    class Meta:
+        model = FilesModel
         fields = '__all__'

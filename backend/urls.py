@@ -19,6 +19,7 @@ router.register(r'all/presupport', views.AllPreSupportViewset, basename='all_pre
 router.register(r'all/implement', views.AllImplementViewset, basename='all_implement')
 router.register(r'all/aftersupport', views.AllAfterSupportViewset, basename='all_aftersupport')
 router.register(r'all/service', views.AllServiceViewset, basename='all_service')
+router.register(r'files', views.FileViewset, basename='files')
 
 urlpatterns = [
     re_path('^', include(router.urls))

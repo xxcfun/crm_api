@@ -4,11 +4,11 @@ from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
-from backend.models import PreSupport, Implement, AfterSupport, Service, ServiceProcess
+from backend.models import PreSupport, Implement, AfterSupport, Service, ServiceProcess, FilesModel
 from backend.serializers import ServiceDetailSerializer, ServiceCreateSerializer, ServiceSerializer, \
     AfterSupportDetailSerializer, AfterSupportSerializer, AfterSupportCreateSerializer, ImplementSerializer, \
     ImplementCreateSerializer, ImplementDetailSerializer, PreSupportDetailSerializer, PreSupportCreateSerializer, \
-    PreSupportSerializer, ServiceProcessSerializer
+    PreSupportSerializer, ServiceProcessSerializer, FilesSerializer
 from customer.views import Pagination
 from utils.permissions import IsOwnerOrReadOnly
 
@@ -197,3 +197,10 @@ class ServiceProcessViewset(viewsets.ModelViewSet):
         service = self.request.GET.get('service', None)
         if service:
             return ServiceProcess.objects.filter(service_id=service)
+
+
+class FileViewset(viewsets.ModelViewSet):
+    """ 文件上传 """
+    authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+    queryset = FilesModel.objects.all()
+    serializer_class = FilesSerializer

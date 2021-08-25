@@ -52,7 +52,7 @@ class ImplementSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Implement
-        fields = ('id', 'testplan', 'report', 'date', 'user')
+        fields = ('id', 'impplan', 'product', 'report', 'date', 'user')
 
 
 class AfterSupportSerializer(serializers.ModelSerializer):

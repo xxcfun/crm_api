@@ -17,6 +17,7 @@ class PreSupport(CommonModel):
     des = models.TextField('详情', max_length=1000, blank=True, null=True)
     user = models.ForeignKey(User, verbose_name='售前人员', related_name='presupport', on_delete=models.CASCADE)
     date = models.CharField('服务日期', max_length=16, blank=True, null=True)
+    file = models.CharField('文件', max_length=1000, blank=True, null=True)
 
     class Meta:
         db_table = 'presupport'
@@ -29,11 +30,13 @@ class PreSupport(CommonModel):
 
 class Implement(CommonModel):
     """ 实施 """
-    testplan = models.CharField('测试方案', max_length=256)
+    impplan = models.CharField('实施方案', max_length=256)
     customer = models.ForeignKey(Customer, verbose_name='客户名称', related_name='implement', on_delete=models.CASCADE)
-    report = models.TextField('测试报告', max_length=1000, blank=True, null=True)
+    product = models.CharField('产品名称', max_length=128)
+    report = models.TextField('结果反馈', max_length=1000, blank=True, null=True)
     user = models.ForeignKey(User, verbose_name='实施人员', related_name='implement', on_delete=models.CASCADE)
     date = models.CharField('实施日期', max_length=16, blank=True, null=True)
+    file = models.CharField('文件', max_length=1000, blank=True, null=True)
 
     class Meta:
         db_table = 'implement'
@@ -41,7 +44,7 @@ class Implement(CommonModel):
         ordering = ['-created_at']
 
     def __str__(self):
-        return self.testplan
+        return self.impplan
 
 
 class AfterSupport(CommonModel):
@@ -52,6 +55,7 @@ class AfterSupport(CommonModel):
     des = models.TextField('详情', max_length=1000, blank=True, null=True)
     user = models.ForeignKey(User, verbose_name='售后人员', related_name='aftersupport', on_delete=models.CASCADE)
     date = models.CharField('服务日期', max_length=16, blank=True, null=True)
+    file = models.CharField('文件', max_length=1000, blank=True, null=True)
 
     class Meta:
         db_table = 'aftersupport'
@@ -69,6 +73,7 @@ class Service(CommonModel):
     other = models.TextField('其它事宜', max_length=1000, blank=True, null=True)
     result = models.TextField('维修结果', max_length=1000, blank=True, null=True)
     user = models.ForeignKey(User, verbose_name='维修人员', related_name='service', on_delete=models.CASCADE)
+    file = models.CharField('文件', max_length=1000, blank=True, null=True)
 
     class Meta:
         db_table = 'service'
@@ -91,3 +96,12 @@ class ServiceProcess(models.Model):
 
     def __str__(self):
         return self.service.problem
+
+
+class FilesModel(models.Model):
+    """ 文件上传 """
+    file = models.FileField(upload_to='uploads/')
+
+    class Meta:
+        db_table = 'files'
+        ordering = ['-id']

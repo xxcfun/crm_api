@@ -787,1284 +787,1322 @@ SELECT|sys.sys_config:null
     <table id="252" parent="3" name="django_content_type"/>
     <table id="253" parent="3" name="django_migrations"/>
     <table id="254" parent="3" name="django_session"/>
-    <table id="255" parent="3" name="implement"/>
-    <table id="256" parent="3" name="liaison"/>
-    <table id="257" parent="3" name="presupport"/>
-    <table id="258" parent="3" name="record"/>
-    <table id="259" parent="3" name="service"/>
-    <table id="260" parent="3" name="service_process"/>
-    <table id="261" parent="3" name="xadmin_bookmark"/>
-    <table id="262" parent="3" name="xadmin_log"/>
-    <table id="263" parent="3" name="xadmin_usersettings"/>
-    <table id="264" parent="3" name="xadmin_userwidget"/>
-    <column id="265" parent="240" name="id">
+    <table id="255" parent="3" name="files"/>
+    <table id="256" parent="3" name="implement"/>
+    <table id="257" parent="3" name="liaison"/>
+    <table id="258" parent="3" name="presupport"/>
+    <table id="259" parent="3" name="record"/>
+    <table id="260" parent="3" name="service"/>
+    <table id="261" parent="3" name="service_process"/>
+    <table id="262" parent="3" name="xadmin_bookmark"/>
+    <table id="263" parent="3" name="xadmin_log"/>
+    <table id="264" parent="3" name="xadmin_usersettings"/>
+    <table id="265" parent="3" name="xadmin_userwidget"/>
+    <column id="266" parent="240" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="266" parent="240" name="password">
+    <column id="267" parent="240" name="password">
       <Position>2</Position>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="267" parent="240" name="last_login">
+    <column id="268" parent="240" name="last_login">
       <Position>3</Position>
       <DataType>datetime(6)|0s</DataType>
     </column>
-    <column id="268" parent="240" name="is_superuser">
+    <column id="269" parent="240" name="is_superuser">
       <Position>4</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="269" parent="240" name="username">
+    <column id="270" parent="240" name="username">
       <Position>5</Position>
       <DataType>varchar(150)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="270" parent="240" name="first_name">
+    <column id="271" parent="240" name="first_name">
       <Position>6</Position>
       <DataType>varchar(150)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="271" parent="240" name="last_name">
+    <column id="272" parent="240" name="last_name">
       <Position>7</Position>
       <DataType>varchar(150)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="272" parent="240" name="is_staff">
+    <column id="273" parent="240" name="is_staff">
       <Position>8</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="273" parent="240" name="is_active">
+    <column id="274" parent="240" name="is_active">
       <Position>9</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="274" parent="240" name="date_joined">
+    <column id="275" parent="240" name="date_joined">
       <Position>10</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="275" parent="240" name="name">
+    <column id="276" parent="240" name="name">
       <Position>11</Position>
       <DataType>varchar(30)|0s</DataType>
     </column>
-    <column id="276" parent="240" name="mobile">
+    <column id="277" parent="240" name="mobile">
       <Position>12</Position>
       <DataType>varchar(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="277" parent="240" name="gender">
+    <column id="278" parent="240" name="gender">
       <Position>13</Position>
       <DataType>varchar(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="278" parent="240" name="email">
+    <column id="279" parent="240" name="email">
       <Position>14</Position>
       <DataType>varchar(100)|0s</DataType>
     </column>
-    <column id="279" parent="240" name="role">
+    <column id="280" parent="240" name="role">
       <Position>15</Position>
       <DataType>smallint(6)|0s</DataType>
     </column>
-    <column id="280" parent="240" name="sub_user_id">
+    <column id="281" parent="240" name="sub_user_id">
       <Position>16</Position>
       <DataType>bigint(20)|0s</DataType>
     </column>
-    <index id="281" parent="240" name="username">
+    <index id="282" parent="240" name="username">
       <ColNames>username</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="282" parent="240" name="account_userprofile_sub_user_id_1c0d59c8">
+    <index id="283" parent="240" name="account_userprofile_sub_user_id_1c0d59c8">
       <ColNames>sub_user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="283" parent="240" name="PRIMARY">
+    <key id="284" parent="240" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="284" parent="240" name="username">
+    <key id="285" parent="240" name="username">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>username</UnderlyingIndexName>
     </key>
-    <column id="285" parent="241" name="id">
+    <column id="286" parent="241" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="286" parent="241" name="userprofile_id">
+    <column id="287" parent="241" name="userprofile_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="287" parent="241" name="group_id">
+    <column id="288" parent="241" name="group_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="288" parent="241" name="account_userprofile_groups_userprofile_id_group_id_4df7adaa_uniq">
+    <index id="289" parent="241" name="account_userprofile_groups_userprofile_id_group_id_4df7adaa_uniq">
       <ColNames>userprofile_id
 group_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="289" parent="241" name="account_userprofile_groups_userprofile_id_7ead1ac5">
+    <index id="290" parent="241" name="account_userprofile_groups_userprofile_id_7ead1ac5">
       <ColNames>userprofile_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="290" parent="241" name="account_userprofile_groups_group_id_211ffaa0">
+    <index id="291" parent="241" name="account_userprofile_groups_group_id_211ffaa0">
       <ColNames>group_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="291" parent="241" name="PRIMARY">
+    <key id="292" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="292" parent="241" name="account_userprofile_groups_userprofile_id_group_id_4df7adaa_uniq">
+    <key id="293" parent="241" name="account_userprofile_groups_userprofile_id_group_id_4df7adaa_uniq">
       <ColNames>userprofile_id
 group_id</ColNames>
       <UnderlyingIndexName>account_userprofile_groups_userprofile_id_group_id_4df7adaa_uniq</UnderlyingIndexName>
     </key>
-    <column id="293" parent="242" name="id">
+    <column id="294" parent="242" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="294" parent="242" name="userprofile_id">
+    <column id="295" parent="242" name="userprofile_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="295" parent="242" name="permission_id">
+    <column id="296" parent="242" name="permission_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="296" parent="242" name="account_userprofile_user_userprofile_id_permissio_856edf21_uniq">
+    <index id="297" parent="242" name="account_userprofile_user_userprofile_id_permissio_856edf21_uniq">
       <ColNames>userprofile_id
 permission_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="297" parent="242" name="account_userprofile_user_permissions_userprofile_id_d6f0e4ab">
+    <index id="298" parent="242" name="account_userprofile_user_permissions_userprofile_id_d6f0e4ab">
       <ColNames>userprofile_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="298" parent="242" name="account_userprofile_user_permissions_permission_id_0ca2725a">
+    <index id="299" parent="242" name="account_userprofile_user_permissions_permission_id_0ca2725a">
       <ColNames>permission_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="299" parent="242" name="PRIMARY">
+    <key id="300" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="300" parent="242" name="account_userprofile_user_userprofile_id_permissio_856edf21_uniq">
+    <key id="301" parent="242" name="account_userprofile_user_userprofile_id_permissio_856edf21_uniq">
       <ColNames>userprofile_id
 permission_id</ColNames>
       <UnderlyingIndexName>account_userprofile_user_userprofile_id_permissio_856edf21_uniq</UnderlyingIndexName>
     </key>
-    <column id="301" parent="243" name="id">
+    <column id="302" parent="243" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="302" parent="243" name="is_valid">
+    <column id="303" parent="243" name="is_valid">
       <Position>2</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="303" parent="243" name="created_at">
+    <column id="304" parent="243" name="created_at">
       <Position>3</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="304" parent="243" name="updated_at">
+    <column id="305" parent="243" name="updated_at">
       <Position>4</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="305" parent="243" name="aftersupport">
+    <column id="306" parent="243" name="aftersupport">
       <Position>5</Position>
       <DataType>varchar(500)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="306" parent="243" name="status">
+    <column id="307" parent="243" name="status">
       <Position>6</Position>
       <DataType>smallint(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="307" parent="243" name="des">
+    <column id="308" parent="243" name="des">
       <Position>7</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="308" parent="243" name="date">
+    <column id="309" parent="243" name="date">
       <Position>8</Position>
       <DataType>varchar(16)|0s</DataType>
     </column>
-    <column id="309" parent="243" name="user_id">
+    <column id="310" parent="243" name="user_id">
       <Position>9</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="310" parent="243" name="customer_id">
+    <column id="311" parent="243" name="customer_id">
       <Position>10</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="311" parent="243" name="aftersupport_after_user_id_6b6993cb">
+    <column id="312" parent="243" name="file">
+      <Position>11</Position>
+      <DataType>varchar(1000)|0s</DataType>
+    </column>
+    <index id="313" parent="243" name="aftersupport_after_user_id_6b6993cb">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="312" parent="243" name="aftersupport_customer_id_56f32710">
+    <index id="314" parent="243" name="aftersupport_customer_id_56f32710">
       <ColNames>customer_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="313" parent="243" name="PRIMARY">
+    <key id="315" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="314" parent="244" name="id">
+    <column id="316" parent="244" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="315" parent="244" name="name">
+    <column id="317" parent="244" name="name">
       <Position>2</Position>
       <DataType>varchar(150)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="316" parent="244" name="name">
+    <index id="318" parent="244" name="name">
       <ColNames>name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="317" parent="244" name="PRIMARY">
+    <key id="319" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="318" parent="244" name="name">
+    <key id="320" parent="244" name="name">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>name</UnderlyingIndexName>
     </key>
-    <column id="319" parent="245" name="id">
+    <column id="321" parent="245" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="320" parent="245" name="group_id">
+    <column id="322" parent="245" name="group_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="321" parent="245" name="permission_id">
+    <column id="323" parent="245" name="permission_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="322" parent="245" name="auth_group_permissions_group_id_permission_id_0cd325b0_uniq">
+    <index id="324" parent="245" name="auth_group_permissions_group_id_permission_id_0cd325b0_uniq">
       <ColNames>group_id
 permission_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="323" parent="245" name="auth_group_permissions_group_id_b120cbf9">
+    <index id="325" parent="245" name="auth_group_permissions_group_id_b120cbf9">
       <ColNames>group_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="324" parent="245" name="auth_group_permissions_permission_id_84c5c92e">
+    <index id="326" parent="245" name="auth_group_permissions_permission_id_84c5c92e">
       <ColNames>permission_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="325" parent="245" name="PRIMARY">
+    <key id="327" parent="245" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="326" parent="245" name="auth_group_permissions_group_id_permission_id_0cd325b0_uniq">
+    <key id="328" parent="245" name="auth_group_permissions_group_id_permission_id_0cd325b0_uniq">
       <ColNames>group_id
 permission_id</ColNames>
       <UnderlyingIndexName>auth_group_permissions_group_id_permission_id_0cd325b0_uniq</UnderlyingIndexName>
     </key>
-    <column id="327" parent="246" name="id">
+    <column id="329" parent="246" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="328" parent="246" name="name">
+    <column id="330" parent="246" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="329" parent="246" name="content_type_id">
+    <column id="331" parent="246" name="content_type_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="330" parent="246" name="codename">
+    <column id="332" parent="246" name="codename">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="331" parent="246" name="auth_permission_content_type_id_codename_01ab375a_uniq">
+    <index id="333" parent="246" name="auth_permission_content_type_id_codename_01ab375a_uniq">
       <ColNames>content_type_id
 codename</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="332" parent="246" name="auth_permission_content_type_id_2f476e4b">
+    <index id="334" parent="246" name="auth_permission_content_type_id_2f476e4b">
       <ColNames>content_type_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="333" parent="246" name="PRIMARY">
+    <key id="335" parent="246" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="334" parent="246" name="auth_permission_content_type_id_codename_01ab375a_uniq">
+    <key id="336" parent="246" name="auth_permission_content_type_id_codename_01ab375a_uniq">
       <ColNames>content_type_id
 codename</ColNames>
       <UnderlyingIndexName>auth_permission_content_type_id_codename_01ab375a_uniq</UnderlyingIndexName>
     </key>
-    <column id="335" parent="247" name="id">
+    <column id="337" parent="247" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="336" parent="247" name="is_valid">
+    <column id="338" parent="247" name="is_valid">
       <Position>2</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="337" parent="247" name="created_at">
+    <column id="339" parent="247" name="created_at">
       <Position>3</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="338" parent="247" name="updated_at">
+    <column id="340" parent="247" name="updated_at">
       <Position>4</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="339" parent="247" name="name">
+    <column id="341" parent="247" name="name">
       <Position>5</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="340" parent="247" name="winning_rate">
+    <column id="342" parent="247" name="winning_rate">
       <Position>6</Position>
       <DataType>smallint(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="341" parent="247" name="money">
+    <column id="343" parent="247" name="money">
       <Position>7</Position>
       <DataType>varchar(16)|0s</DataType>
     </column>
-    <column id="342" parent="247" name="remarks">
+    <column id="344" parent="247" name="remarks">
       <Position>8</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="343" parent="247" name="customer_id">
+    <column id="345" parent="247" name="customer_id">
       <Position>9</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="344" parent="247" name="user_id">
+    <column id="346" parent="247" name="user_id">
       <Position>10</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="345" parent="247" name="business_customer_id_c60c2408">
+    <index id="347" parent="247" name="business_customer_id_c60c2408">
       <ColNames>customer_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="346" parent="247" name="business_user_id_fddfed03">
+    <index id="348" parent="247" name="business_user_id_fddfed03">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="347" parent="247" name="PRIMARY">
+    <key id="349" parent="247" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="348" parent="248" name="id">
+    <column id="350" parent="248" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="349" parent="248" name="is_valid">
+    <column id="351" parent="248" name="is_valid">
       <Position>2</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="350" parent="248" name="created_at">
+    <column id="352" parent="248" name="created_at">
       <Position>3</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="351" parent="248" name="updated_at">
+    <column id="353" parent="248" name="updated_at">
       <Position>4</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="352" parent="248" name="name">
+    <column id="354" parent="248" name="name">
       <Position>5</Position>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="353" parent="248" name="number">
+    <column id="355" parent="248" name="number">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="354" parent="248" name="price">
+    <column id="356" parent="248" name="price">
       <Position>7</Position>
       <DataType>varchar(16)|0s</DataType>
     </column>
-    <column id="355" parent="248" name="business_id">
+    <column id="357" parent="248" name="business_id">
       <Position>8</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="356" parent="248" name="business_product_business_id_8c524e12">
+    <index id="358" parent="248" name="business_product_business_id_8c524e12">
       <ColNames>business_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="357" parent="248" name="PRIMARY">
+    <key id="359" parent="248" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="358" parent="249" name="id">
+    <column id="360" parent="249" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="359" parent="249" name="is_valid">
+    <column id="361" parent="249" name="is_valid">
       <Position>2</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="360" parent="249" name="created_at">
+    <column id="362" parent="249" name="created_at">
       <Position>3</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="361" parent="249" name="updated_at">
+    <column id="363" parent="249" name="updated_at">
       <Position>4</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="362" parent="249" name="name">
+    <column id="364" parent="249" name="name">
       <Position>5</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="363" parent="249" name="rank">
+    <column id="365" parent="249" name="rank">
       <Position>6</Position>
       <DataType>smallint(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="364" parent="249" name="is_deal">
+    <column id="366" parent="249" name="is_deal">
       <Position>7</Position>
       <DataType>smallint(6)|0s</DataType>
     </column>
-    <column id="365" parent="249" name="website">
+    <column id="367" parent="249" name="website">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="366" parent="249" name="scale">
+    <column id="368" parent="249" name="scale">
       <Position>9</Position>
       <DataType>smallint(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="367" parent="249" name="nature">
+    <column id="369" parent="249" name="nature">
       <Position>10</Position>
       <DataType>smallint(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="368" parent="249" name="industry">
+    <column id="370" parent="249" name="industry">
       <Position>11</Position>
       <DataType>smallint(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="369" parent="249" name="remarks">
+    <column id="371" parent="249" name="remarks">
       <Position>12</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="370" parent="249" name="user_id">
+    <column id="372" parent="249" name="user_id">
       <Position>13</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="371" parent="249" name="name">
+    <index id="373" parent="249" name="name">
       <ColNames>name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="372" parent="249" name="customer_user_id_fde49d68">
+    <index id="374" parent="249" name="customer_user_id_fde49d68">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="373" parent="249" name="PRIMARY">
+    <key id="375" parent="249" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="374" parent="249" name="name">
+    <key id="376" parent="249" name="name">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>name</UnderlyingIndexName>
     </key>
-    <column id="375" parent="250" name="id">
+    <column id="377" parent="250" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="376" parent="250" name="yes_record">
+    <column id="378" parent="250" name="yes_record">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="377" parent="250" name="yes_phone">
+    <column id="379" parent="250" name="yes_phone">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="378" parent="250" name="new_customer">
+    <column id="380" parent="250" name="new_customer">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="379" parent="250" name="new_business">
+    <column id="381" parent="250" name="new_business">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="380" parent="250" name="week_record">
+    <column id="382" parent="250" name="week_record">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="381" parent="250" name="week_phone">
+    <column id="383" parent="250" name="week_phone">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="382" parent="250" name="week_business">
+    <column id="384" parent="250" name="week_business">
       <Position>8</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="383" parent="250" name="mon_customer">
+    <column id="385" parent="250" name="mon_customer">
       <Position>9</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="384" parent="250" name="fol_business">
+    <column id="386" parent="250" name="fol_business">
       <Position>10</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="385" parent="250" name="fin_business">
+    <column id="387" parent="250" name="fin_business">
       <Position>11</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="386" parent="250" name="user_id">
+    <column id="388" parent="250" name="user_id">
       <Position>12</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="387" parent="250" name="data_user_id_f69e4f61">
+    <index id="389" parent="250" name="data_user_id_f69e4f61">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="388" parent="250" name="PRIMARY">
+    <key id="390" parent="250" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="389" parent="251" name="id">
+    <column id="391" parent="251" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="390" parent="251" name="action_time">
+    <column id="392" parent="251" name="action_time">
       <Position>2</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="391" parent="251" name="object_id">
+    <column id="393" parent="251" name="object_id">
       <Position>3</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="392" parent="251" name="object_repr">
+    <column id="394" parent="251" name="object_repr">
       <Position>4</Position>
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="393" parent="251" name="action_flag">
+    <column id="395" parent="251" name="action_flag">
       <Position>5</Position>
       <DataType>smallint(5) unsigned|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="394" parent="251" name="change_message">
+    <column id="396" parent="251" name="change_message">
       <Position>6</Position>
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="395" parent="251" name="content_type_id">
+    <column id="397" parent="251" name="content_type_id">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="396" parent="251" name="user_id">
+    <column id="398" parent="251" name="user_id">
       <Position>8</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="397" parent="251" name="django_admin_log_content_type_id_c4bce8eb">
+    <index id="399" parent="251" name="django_admin_log_content_type_id_c4bce8eb">
       <ColNames>content_type_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="398" parent="251" name="django_admin_log_user_id_c564eba6">
+    <index id="400" parent="251" name="django_admin_log_user_id_c564eba6">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="399" parent="251" name="PRIMARY">
+    <key id="401" parent="251" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="400" parent="252" name="id">
+    <column id="402" parent="252" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="401" parent="252" name="app_label">
+    <column id="403" parent="252" name="app_label">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="402" parent="252" name="model">
+    <column id="404" parent="252" name="model">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="403" parent="252" name="django_content_type_app_label_model_76bd3d3b_uniq">
+    <index id="405" parent="252" name="django_content_type_app_label_model_76bd3d3b_uniq">
       <ColNames>app_label
 model</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="404" parent="252" name="PRIMARY">
+    <key id="406" parent="252" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="405" parent="252" name="django_content_type_app_label_model_76bd3d3b_uniq">
+    <key id="407" parent="252" name="django_content_type_app_label_model_76bd3d3b_uniq">
       <ColNames>app_label
 model</ColNames>
       <UnderlyingIndexName>django_content_type_app_label_model_76bd3d3b_uniq</UnderlyingIndexName>
     </key>
-    <column id="406" parent="253" name="id">
+    <column id="408" parent="253" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="407" parent="253" name="app">
+    <column id="409" parent="253" name="app">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="408" parent="253" name="name">
+    <column id="410" parent="253" name="name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="409" parent="253" name="applied">
+    <column id="411" parent="253" name="applied">
       <Position>4</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="410" parent="253" name="PRIMARY">
+    <key id="412" parent="253" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="411" parent="254" name="session_key">
+    <column id="413" parent="254" name="session_key">
       <Position>1</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="412" parent="254" name="session_data">
+    <column id="414" parent="254" name="session_data">
       <Position>2</Position>
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="413" parent="254" name="expire_date">
+    <column id="415" parent="254" name="expire_date">
       <Position>3</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="414" parent="254" name="django_session_expire_date_a5c62663">
+    <index id="416" parent="254" name="django_session_expire_date_a5c62663">
       <ColNames>expire_date</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="415" parent="254" name="PRIMARY">
+    <key id="417" parent="254" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>session_key</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="416" parent="255" name="id">
+    <column id="418" parent="255" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="417" parent="255" name="is_valid">
+    <column id="419" parent="255" name="file">
       <Position>2</Position>
-      <DataType>tinyint(1)|0s</DataType>
+      <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="418" parent="255" name="created_at">
-      <Position>3</Position>
-      <DataType>datetime(6)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="419" parent="255" name="updated_at">
-      <Position>4</Position>
-      <DataType>datetime(6)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="420" parent="255" name="testplan">
-      <Position>5</Position>
-      <DataType>varchar(256)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="421" parent="255" name="report">
-      <Position>6</Position>
-      <DataType>longtext|0s</DataType>
-    </column>
-    <column id="422" parent="255" name="date">
-      <Position>7</Position>
-      <DataType>varchar(16)|0s</DataType>
-    </column>
-    <column id="423" parent="255" name="customer_id">
-      <Position>8</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="424" parent="255" name="user_id">
-      <Position>9</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="425" parent="255" name="implement_customer_id_1fc997ef">
-      <ColNames>customer_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="426" parent="255" name="implement_imp_user_id_672538e0">
-      <ColNames>user_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="427" parent="255" name="PRIMARY">
+    <key id="420" parent="255" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="428" parent="256" name="id">
+    <column id="421" parent="256" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="429" parent="256" name="is_valid">
+    <column id="422" parent="256" name="is_valid">
       <Position>2</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="430" parent="256" name="created_at">
+    <column id="423" parent="256" name="created_at">
       <Position>3</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="431" parent="256" name="updated_at">
+    <column id="424" parent="256" name="updated_at">
       <Position>4</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="432" parent="256" name="name">
+    <column id="425" parent="256" name="report">
+      <Position>5</Position>
+      <DataType>longtext|0s</DataType>
+    </column>
+    <column id="426" parent="256" name="date">
+      <Position>6</Position>
+      <DataType>varchar(16)|0s</DataType>
+    </column>
+    <column id="427" parent="256" name="customer_id">
+      <Position>7</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="428" parent="256" name="user_id">
+      <Position>8</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="429" parent="256" name="file">
+      <Position>9</Position>
+      <DataType>varchar(1000)|0s</DataType>
+    </column>
+    <column id="430" parent="256" name="product">
+      <Position>10</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="431" parent="256" name="impplan">
+      <Position>11</Position>
+      <DataType>varchar(256)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="432" parent="256" name="implement_customer_id_1fc997ef">
+      <ColNames>customer_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="433" parent="256" name="implement_imp_user_id_672538e0">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="434" parent="256" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="435" parent="257" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="436" parent="257" name="is_valid">
+      <Position>2</Position>
+      <DataType>tinyint(1)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="437" parent="257" name="created_at">
+      <Position>3</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="438" parent="257" name="updated_at">
+      <Position>4</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="439" parent="257" name="name">
       <Position>5</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="433" parent="256" name="phone">
+    <column id="440" parent="257" name="phone">
       <Position>6</Position>
       <DataType>varchar(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="434" parent="256" name="job">
+    <column id="441" parent="257" name="job">
       <Position>7</Position>
       <DataType>smallint(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="435" parent="256" name="injob">
+    <column id="442" parent="257" name="injob">
       <Position>8</Position>
       <DataType>smallint(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="436" parent="256" name="wx">
+    <column id="443" parent="257" name="wx">
       <Position>9</Position>
       <DataType>varchar(64)|0s</DataType>
     </column>
-    <column id="437" parent="256" name="qq">
+    <column id="444" parent="257" name="qq">
       <Position>10</Position>
       <DataType>varchar(64)|0s</DataType>
     </column>
-    <column id="438" parent="256" name="email">
+    <column id="445" parent="257" name="email">
       <Position>11</Position>
       <DataType>varchar(64)|0s</DataType>
     </column>
-    <column id="439" parent="256" name="hobby">
+    <column id="446" parent="257" name="hobby">
       <Position>12</Position>
       <DataType>varchar(128)|0s</DataType>
     </column>
-    <column id="440" parent="256" name="birthday">
+    <column id="447" parent="257" name="birthday">
       <Position>13</Position>
       <DataType>varchar(64)|0s</DataType>
     </column>
-    <column id="441" parent="256" name="remarks">
+    <column id="448" parent="257" name="remarks">
       <Position>14</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="442" parent="256" name="customer_id">
+    <column id="449" parent="257" name="customer_id">
       <Position>15</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="443" parent="256" name="user_id">
+    <column id="450" parent="257" name="user_id">
       <Position>16</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="444" parent="256" name="liaison_customer_id_3926e239">
+    <index id="451" parent="257" name="liaison_customer_id_3926e239">
       <ColNames>customer_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="445" parent="256" name="liaison_user_id_86b26e7d">
+    <index id="452" parent="257" name="liaison_user_id_86b26e7d">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="446" parent="256" name="PRIMARY">
+    <key id="453" parent="257" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="447" parent="257" name="id">
+    <column id="454" parent="258" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="448" parent="257" name="is_valid">
+    <column id="455" parent="258" name="is_valid">
       <Position>2</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="449" parent="257" name="created_at">
+    <column id="456" parent="258" name="created_at">
       <Position>3</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="450" parent="257" name="updated_at">
+    <column id="457" parent="258" name="updated_at">
       <Position>4</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="451" parent="257" name="preplan">
+    <column id="458" parent="258" name="preplan">
       <Position>5</Position>
       <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="452" parent="257" name="product">
+    <column id="459" parent="258" name="product">
       <Position>6</Position>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="453" parent="257" name="cycle">
+    <column id="460" parent="258" name="cycle">
       <Position>7</Position>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="454" parent="257" name="des">
+    <column id="461" parent="258" name="des">
       <Position>8</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="455" parent="257" name="date">
+    <column id="462" parent="258" name="date">
       <Position>9</Position>
       <DataType>varchar(16)|0s</DataType>
     </column>
-    <column id="456" parent="257" name="customer_id">
+    <column id="463" parent="258" name="customer_id">
       <Position>10</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="457" parent="257" name="user_id">
+    <column id="464" parent="258" name="user_id">
       <Position>11</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="458" parent="257" name="presupport_customer_id_bd14bc38">
+    <column id="465" parent="258" name="file">
+      <Position>12</Position>
+      <DataType>varchar(1000)|0s</DataType>
+    </column>
+    <index id="466" parent="258" name="presupport_customer_id_bd14bc38">
       <ColNames>customer_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="459" parent="257" name="presupport_pre_user_id_83fa3c77">
+    <index id="467" parent="258" name="presupport_pre_user_id_83fa3c77">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="460" parent="257" name="PRIMARY">
+    <key id="468" parent="258" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="461" parent="258" name="id">
+    <column id="469" parent="259" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="462" parent="258" name="is_valid">
+    <column id="470" parent="259" name="is_valid">
       <Position>2</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="463" parent="258" name="created_at">
+    <column id="471" parent="259" name="created_at">
       <Position>3</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="464" parent="258" name="updated_at">
+    <column id="472" parent="259" name="updated_at">
       <Position>4</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="465" parent="258" name="theme">
+    <column id="473" parent="259" name="theme">
       <Position>5</Position>
       <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="466" parent="258" name="status">
+    <column id="474" parent="259" name="status">
       <Position>6</Position>
       <DataType>smallint(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="467" parent="258" name="main">
+    <column id="475" parent="259" name="main">
       <Position>7</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="468" parent="258" name="next">
+    <column id="476" parent="259" name="next">
       <Position>8</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="469" parent="258" name="remarks">
+    <column id="477" parent="259" name="remarks">
       <Position>9</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="470" parent="258" name="customer_id">
+    <column id="478" parent="259" name="customer_id">
       <Position>10</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="471" parent="258" name="user_id">
+    <column id="479" parent="259" name="user_id">
       <Position>11</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="472" parent="258" name="record_customer_id_4ed795dc">
+    <index id="480" parent="259" name="record_customer_id_4ed795dc">
       <ColNames>customer_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="473" parent="258" name="record_user_id_892e847f">
+    <index id="481" parent="259" name="record_user_id_892e847f">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="474" parent="258" name="PRIMARY">
+    <key id="482" parent="259" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="475" parent="259" name="id">
+    <column id="483" parent="260" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="476" parent="259" name="is_valid">
+    <column id="484" parent="260" name="is_valid">
       <Position>2</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="477" parent="259" name="created_at">
+    <column id="485" parent="260" name="created_at">
       <Position>3</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="478" parent="259" name="updated_at">
+    <column id="486" parent="260" name="updated_at">
       <Position>4</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="479" parent="259" name="problem">
+    <column id="487" parent="260" name="problem">
       <Position>5</Position>
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="480" parent="259" name="other">
+    <column id="488" parent="260" name="other">
       <Position>6</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="481" parent="259" name="result">
+    <column id="489" parent="260" name="result">
       <Position>7</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="482" parent="259" name="customer_id">
+    <column id="490" parent="260" name="customer_id">
       <Position>8</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="483" parent="259" name="user_id">
+    <column id="491" parent="260" name="user_id">
       <Position>9</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="484" parent="259" name="service_customer_id_dc2e520a">
+    <column id="492" parent="260" name="file">
+      <Position>10</Position>
+      <DataType>varchar(1000)|0s</DataType>
+    </column>
+    <index id="493" parent="260" name="service_customer_id_dc2e520a">
       <ColNames>customer_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="485" parent="259" name="service_ser_user_id_a7e76e91">
+    <index id="494" parent="260" name="service_ser_user_id_a7e76e91">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="486" parent="259" name="PRIMARY">
+    <key id="495" parent="260" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="487" parent="260" name="id">
+    <column id="496" parent="261" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="488" parent="260" name="date">
+    <column id="497" parent="261" name="date">
       <Position>2</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="489" parent="260" name="process">
+    <column id="498" parent="261" name="process">
       <Position>3</Position>
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="490" parent="260" name="service_id">
+    <column id="499" parent="261" name="service_id">
       <Position>4</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="491" parent="260" name="service_process_service_id_ea17f9a7">
+    <index id="500" parent="261" name="service_process_service_id_ea17f9a7">
       <ColNames>service_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="492" parent="260" name="PRIMARY">
+    <key id="501" parent="261" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="493" parent="261" name="id">
+    <column id="502" parent="262" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="494" parent="261" name="title">
+    <column id="503" parent="262" name="title">
       <Position>2</Position>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="495" parent="261" name="url_name">
+    <column id="504" parent="262" name="url_name">
       <Position>3</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="496" parent="261" name="query">
+    <column id="505" parent="262" name="query">
       <Position>4</Position>
       <DataType>varchar(1000)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="497" parent="261" name="is_share">
+    <column id="506" parent="262" name="is_share">
       <Position>5</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="498" parent="261" name="content_type_id">
+    <column id="507" parent="262" name="content_type_id">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="499" parent="261" name="user_id">
+    <column id="508" parent="262" name="user_id">
       <Position>7</Position>
       <DataType>bigint(20)|0s</DataType>
     </column>
-    <index id="500" parent="261" name="xadmin_bookmark_content_type_id_60941679">
+    <index id="509" parent="262" name="xadmin_bookmark_content_type_id_60941679">
       <ColNames>content_type_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="501" parent="261" name="xadmin_bookmark_user_id_42d307fc">
+    <index id="510" parent="262" name="xadmin_bookmark_user_id_42d307fc">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="502" parent="261" name="PRIMARY">
+    <key id="511" parent="262" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="503" parent="262" name="id">
+    <column id="512" parent="263" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="504" parent="262" name="action_time">
+    <column id="513" parent="263" name="action_time">
       <Position>2</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="505" parent="262" name="ip_addr">
+    <column id="514" parent="263" name="ip_addr">
       <Position>3</Position>
       <DataType>char(39)|0s</DataType>
     </column>
-    <column id="506" parent="262" name="object_id">
+    <column id="515" parent="263" name="object_id">
       <Position>4</Position>
       <DataType>longtext|0s</DataType>
     </column>
-    <column id="507" parent="262" name="object_repr">
+    <column id="516" parent="263" name="object_repr">
       <Position>5</Position>
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="508" parent="262" name="action_flag">
+    <column id="517" parent="263" name="action_flag">
       <Position>6</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="509" parent="262" name="message">
+    <column id="518" parent="263" name="message">
       <Position>7</Position>
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="510" parent="262" name="content_type_id">
+    <column id="519" parent="263" name="content_type_id">
       <Position>8</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="511" parent="262" name="user_id">
+    <column id="520" parent="263" name="user_id">
       <Position>9</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="512" parent="262" name="xadmin_log_content_type_id_2a6cb852">
+    <index id="521" parent="263" name="xadmin_log_content_type_id_2a6cb852">
       <ColNames>content_type_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="513" parent="262" name="xadmin_log_user_id_bb16a176">
+    <index id="522" parent="263" name="xadmin_log_user_id_bb16a176">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="514" parent="262" name="PRIMARY">
+    <key id="523" parent="263" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="515" parent="263" name="id">
+    <column id="524" parent="264" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="516" parent="263" name="key">
+    <column id="525" parent="264" name="key">
       <Position>2</Position>
       <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="517" parent="263" name="value">
+    <column id="526" parent="264" name="value">
       <Position>3</Position>
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="518" parent="263" name="user_id">
+    <column id="527" parent="264" name="user_id">
       <Position>4</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="519" parent="263" name="xadmin_usersettings_user_id_edeabe4a">
+    <index id="528" parent="264" name="xadmin_usersettings_user_id_edeabe4a">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="520" parent="263" name="PRIMARY">
+    <key id="529" parent="264" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="521" parent="264" name="id">
+    <column id="530" parent="265" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="522" parent="264" name="page_id">
+    <column id="531" parent="265" name="page_id">
       <Position>2</Position>
       <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="523" parent="264" name="widget_type">
+    <column id="532" parent="265" name="widget_type">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="524" parent="264" name="value">
+    <column id="533" parent="265" name="value">
       <Position>4</Position>
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="525" parent="264" name="user_id">
+    <column id="534" parent="265" name="user_id">
       <Position>5</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="526" parent="264" name="xadmin_userwidget_user_id_c159233a">
+    <index id="535" parent="265" name="xadmin_userwidget_user_id_c159233a">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="527" parent="264" name="PRIMARY">
+    <key id="536" parent="265" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

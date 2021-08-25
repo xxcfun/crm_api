@@ -15,14 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.static import serve
 from rest_framework.documentation import include_docs_urls
 from rest_framework_jwt.views import obtain_jwt_token
 
 import xadmin
+from crm_api.settings import MEDIA_ROOT
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('xadmin/', xadmin.site.urls),
+    path('media/<path:path>', serve, {'document_root': MEDIA_ROOT}),
     path('docs', include_docs_urls(title='系统接口文档')),
     path('api-auth/',include('rest_framework.urls')),
     path('customer/', include('customer.urls')),
