@@ -13,7 +13,7 @@ class UserDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'name', 'role')
+        fields = ('id', 'username', 'name', 'role')
 
 
 class JSUserSerializer(serializers.ModelSerializer):

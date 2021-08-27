@@ -168,3 +168,11 @@ class AllCustomerSerializer(serializers.ModelSerializer):
         model = Customer
         fields = ('id', 'name', 'rank', 'is_deal', 'scale', 'industry', 'created_at', 'user',
                   'liaison', 'record', 'business', 'presupport', 'implement', 'aftersupport', 'service')
+
+
+class CustomerCreateSerializer(serializers.ModelSerializer):
+    """ 后端人员创建客户序列化 """
+
+    class Meta:
+        model = Customer
+        fields = '__all__'
