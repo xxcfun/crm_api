@@ -15,8 +15,13 @@ class Data(models.Model):
     week_record = models.IntegerField('本周拜访数量', default=0)
     week_phone = models.IntegerField('本周外呼数量', default=0)
     week_business = models.IntegerField('本周商机数量', default=0)
+    week_customer = models.IntegerField('本周客户数量', default=0)
 
+    mon_record = models.IntegerField('本月拜访数量', default=0)
+    mon_phone = models.IntegerField('本月外呼数量', default=0)
+    mon_business = models.IntegerField('本月商机数量', default=0)
     mon_customer = models.IntegerField('本月客户数量', default=0)
+
     fol_business = models.IntegerField('跟进商机', default=0)
     fin_business = models.IntegerField('完成商机', default=0)
 
