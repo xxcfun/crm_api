@@ -26,7 +26,7 @@ class RecordSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Record
-        fields = ('id', 'theme', 'status', 'main', 'next', 'created_at', 'user')
+        fields = ('id', 'theme', 'status', 'main', 'product', 'next', 'created_at', 'user')
 
 
 class BusinessSerializer(serializers.ModelSerializer):

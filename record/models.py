@@ -14,6 +14,7 @@ class Record(CommonModel):
     customer = models.ForeignKey(Customer, verbose_name='客户', related_name='record', on_delete=models.CASCADE)
     status = models.SmallIntegerField('客户拜访方式', choices=STATUS.choices, default=STATUS.STATUS_XS)
     main = models.TextField('主要事宜', max_length=1000, null=True, blank=True)
+    product = models.CharField('现用产品', max_length=1000, null=True, blank=True)
     next = models.TextField('后期规划', max_length=1000, null=True, blank=True)
     remarks = models.TextField('拜访备注', max_length=1000, blank=True, null=True)
     user = models.ForeignKey(User, verbose_name='创建人', on_delete=models.CASCADE)
